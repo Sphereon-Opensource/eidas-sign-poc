@@ -1,0 +1,31 @@
+== SDKs
+
+Our API's are based on the OpenAPI specification (formerly known as Swagger specification). This means you can pickup our REST API definition file and generate classes for your favorite programming language.
+
+=== Provided SDKs and generated SDKs
+==== Provided SDKs
+Since this is a PoC, Sphereon does not provide supported SDKs.
+
+==== Generate your own SDK
+
+Please feel free to generate an SDK for your own programming language using our Swagger file. Please note that we do not officially support your SDK, but unofficially we are here to help of course.
+You can use Swagger codegen for this (https://swagger.io/swagger-codegen). Swagger codegen support almost 100 programming languages.
+
+Please use version 2.X of swagger codegen with our current API's
+
+
+=== Version compatibility between SDK and API
+Al of our REST API's follow the versioning scheme below
+
+`XX.YY`
+
+When the major number (XX) changes this means we completely redesign an API.
+Minor number (YY) changes means smaller backwards comptible breaks within the API. An API can be changed forward compatible within the same minor number.
+
+Our SDK follow the below versioning scheme
+
+`XX.YY.ZZ`
+
+The major (XX) and minor (YY) number always map directly to the accompanying REST API version.
+The micro number (ZZ) is used if we add forward compatible changes to our REST API, or when bugs are encountered in a specific SDK.
+

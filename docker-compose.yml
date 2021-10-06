@@ -1,0 +1,20 @@
+version: '3.1'
+services:
+  mongo:
+    image: mongo
+    restart: always
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+  eidas-sign-poc:
+    build:
+      context: .
+    depends_on:
+      - mongo
+    restart: always
+    environment:
+      MONGODB_URL: mongodb://root:example@mongo:27017
+    ports:
+      - "21762:21762"

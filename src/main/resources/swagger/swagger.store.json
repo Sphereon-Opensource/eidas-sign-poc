@@ -1,0 +1,460 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "The eIdas signature API is a PoC API that allows you to sign objects using X509 / eidas compliant signatures.",
+    "version" : "0.1",
+    "title" : "Eidas Sign API",
+    "termsOfService" : "https://docs.sphereon.com/api/eidas-sign-poc/0.1/html",
+    "contact" : {
+      "name" : "Sphereon",
+      "url" : "https://sphereon.com",
+      "email" : "dev@sphereon.com"
+    },
+    "license" : {
+      "name" : "Apache License Version 2.0",
+      "url" : "https://www.apache.org/licenses/LICENSE-2.0"
+    }
+  },
+  "host" : "localhost",
+  "basePath" : "/",
+  "tags" : [ {
+    "name" : "Certificates",
+    "description" : "Certificates and signing"
+  }, {
+    "name" : "Signatures",
+    "description" : "Signature verification"
+  }, {
+    "name" : "eidas-controller",
+    "description" : "Eidas Controller"
+  } ],
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/eidas/1.0/certificates" : {
+      "post" : {
+        "tags" : [ "Certificates" ],
+        "summary" : "Import certificate",
+        "description" : "Import a X509 certificate in base65 form",
+        "operationId" : "ImportCertificate_1",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "certificateImportRequest",
+          "description" : "certificateImportRequest",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/EidasCertificateImportRequest"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/ResponseEntity"
+            }
+          }
+        }
+      }
+    },
+    "/eidas/1.0/certificates/{name}/sign" : {
+      "post" : {
+        "tags" : [ "Certificates" ],
+        "summary" : "Sign input data",
+        "description" : "Create a signature using the named certificate",
+        "operationId" : "Sign_1",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "cadesSignatureRequest",
+          "description" : "cadesSignatureRequest",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/CadesSignatureRequest"
+          }
+        }, {
+          "name" : "name",
+          "in" : "path",
+          "description" : "name",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/CadesSignatureResponse"
+            }
+          }
+        }
+      }
+    },
+    "/eidas/1.0/signatures" : {
+      "post" : {
+        "tags" : [ "Signatures" ],
+        "summary" : "Verify input data",
+        "description" : "Verifies a signature",
+        "operationId" : "Verify_1",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "*/*" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "cadesSignatureVerifyRequest",
+          "description" : "cadesSignatureVerifyRequest",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/CadesSignatureVerifyRequest"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "schema" : {
+              "$ref" : "#/definitions/CadesSignatureVerifyResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "CadesSignatureRequest" : {
+      "type" : "object",
+      "properties" : {
+        "content" : {
+          "type" : "string"
+        },
+        "password" : {
+          "type" : "string"
+        }
+      },
+      "title" : "CadesSignatureRequest"
+    },
+    "CadesSignatureResponse" : {
+      "type" : "object",
+      "properties" : {
+        "signature" : {
+          "type" : "string"
+        }
+      },
+      "title" : "CadesSignatureResponse"
+    },
+    "CadesSignatureVerifyRequest" : {
+      "type" : "object",
+      "properties" : {
+        "signature" : {
+          "type" : "string"
+        }
+      },
+      "title" : "CadesSignatureVerifyRequest"
+    },
+    "CadesSignatureVerifyResponse" : {
+      "type" : "object",
+      "properties" : {
+        "originalData" : {
+          "type" : "string"
+        },
+        "simpleReport" : {
+          "$ref" : "#/definitions/XmlSimpleReport"
+        },
+        "verified" : {
+          "type" : "boolean"
+        }
+      },
+      "title" : "CadesSignatureVerifyResponse"
+    },
+    "EidasCertificateImportRequest" : {
+      "type" : "object",
+      "properties" : {
+        "base64Certificate" : {
+          "type" : "string"
+        },
+        "name" : {
+          "type" : "string"
+        }
+      },
+      "title" : "EidasCertificateImportRequest"
+    },
+    "ResponseEntity" : {
+      "type" : "object",
+      "properties" : {
+        "body" : {
+          "type" : "object",
+          "properties" : { }
+        },
+        "statusCode" : {
+          "type" : "string",
+          "enum" : [ "ACCEPTED", "ALREADY_REPORTED", "BAD_GATEWAY", "BAD_REQUEST", "BANDWIDTH_LIMIT_EXCEEDED", "CHECKPOINT", "CONFLICT", "CONTINUE", "CREATED", "DESTINATION_LOCKED", "EXPECTATION_FAILED", "FAILED_DEPENDENCY", "FORBIDDEN", "FOUND", "GATEWAY_TIMEOUT", "GONE", "HTTP_VERSION_NOT_SUPPORTED", "IM_USED", "INSUFFICIENT_SPACE_ON_RESOURCE", "INSUFFICIENT_STORAGE", "INTERNAL_SERVER_ERROR", "I_AM_A_TEAPOT", "LENGTH_REQUIRED", "LOCKED", "LOOP_DETECTED", "METHOD_FAILURE", "METHOD_NOT_ALLOWED", "MOVED_PERMANENTLY", "MOVED_TEMPORARILY", "MULTIPLE_CHOICES", "MULTI_STATUS", "NETWORK_AUTHENTICATION_REQUIRED", "NON_AUTHORITATIVE_INFORMATION", "NOT_ACCEPTABLE", "NOT_EXTENDED", "NOT_FOUND", "NOT_IMPLEMENTED", "NOT_MODIFIED", "NO_CONTENT", "OK", "PARTIAL_CONTENT", "PAYLOAD_TOO_LARGE", "PAYMENT_REQUIRED", "PERMANENT_REDIRECT", "PRECONDITION_FAILED", "PRECONDITION_REQUIRED", "PROCESSING", "PROXY_AUTHENTICATION_REQUIRED", "REQUESTED_RANGE_NOT_SATISFIABLE", "REQUEST_ENTITY_TOO_LARGE", "REQUEST_HEADER_FIELDS_TOO_LARGE", "REQUEST_TIMEOUT", "REQUEST_URI_TOO_LONG", "RESET_CONTENT", "SEE_OTHER", "SERVICE_UNAVAILABLE", "SWITCHING_PROTOCOLS", "TEMPORARY_REDIRECT", "TOO_EARLY", "TOO_MANY_REQUESTS", "UNAUTHORIZED", "UNAVAILABLE_FOR_LEGAL_REASONS", "UNPROCESSABLE_ENTITY", "UNSUPPORTED_MEDIA_TYPE", "UPGRADE_REQUIRED", "URI_TOO_LONG", "USE_PROXY", "VARIANT_ALSO_NEGOTIATES" ]
+        },
+        "statusCodeValue" : {
+          "type" : "integer",
+          "format" : "int32"
+        }
+      },
+      "title" : "ResponseEntity"
+    },
+    "XmlCertificate" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "id",
+            "attribute" : false,
+            "wrapped" : false
+          }
+        },
+        "qualifiedName" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "qualifiedName",
+            "attribute" : false,
+            "wrapped" : false
+          }
+        }
+      },
+      "title" : "XmlCertificate",
+      "xml" : {
+        "name" : "Certificate",
+        "attribute" : false,
+        "wrapped" : false
+      }
+    },
+    "XmlCertificateChain" : {
+      "type" : "object",
+      "properties" : {
+        "certificate" : {
+          "type" : "array",
+          "xml" : {
+            "name" : "Certificate",
+            "attribute" : false,
+            "wrapped" : false
+          },
+          "items" : {
+            "$ref" : "#/definitions/XmlCertificate"
+          }
+        }
+      },
+      "title" : "XmlCertificateChain",
+      "xml" : {
+        "name" : "CertificateChain",
+        "attribute" : false,
+        "wrapped" : false
+      }
+    },
+    "XmlSemantic" : {
+      "type" : "object",
+      "properties" : {
+        "key" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Key",
+            "attribute" : true,
+            "wrapped" : false
+          }
+        },
+        "value" : {
+          "type" : "string"
+        }
+      },
+      "title" : "XmlSemantic",
+      "xml" : {
+        "name" : "Semantic",
+        "attribute" : false,
+        "wrapped" : false
+      }
+    },
+    "XmlSimpleReport" : {
+      "type" : "object",
+      "properties" : {
+        "containerType" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "ContainerType",
+            "attribute" : false,
+            "wrapped" : false
+          },
+          "enum" : [ "ASiC_E", "ASiC_S" ]
+        },
+        "documentName" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "DocumentName",
+            "attribute" : false,
+            "wrapped" : false
+          }
+        },
+        "semantic" : {
+          "type" : "array",
+          "xml" : {
+            "name" : "Semantic",
+            "attribute" : false,
+            "wrapped" : false
+          },
+          "items" : {
+            "$ref" : "#/definitions/XmlSemantic"
+          }
+        },
+        "signatureOrTimestamp" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/XmlToken"
+          }
+        },
+        "signaturesCount" : {
+          "type" : "integer",
+          "format" : "int32",
+          "xml" : {
+            "name" : "SignaturesCount",
+            "attribute" : false,
+            "wrapped" : false
+          }
+        },
+        "validSignaturesCount" : {
+          "type" : "integer",
+          "format" : "int32",
+          "xml" : {
+            "name" : "ValidSignaturesCount",
+            "attribute" : false,
+            "wrapped" : false
+          }
+        },
+        "validationPolicy" : {
+          "xml" : {
+            "name" : "ValidationPolicy",
+            "attribute" : false,
+            "wrapped" : false
+          },
+          "$ref" : "#/definitions/XmlValidationPolicy"
+        },
+        "validationTime" : {
+          "type" : "string",
+          "format" : "date-time",
+          "xml" : {
+            "name" : "ValidationTime",
+            "attribute" : true,
+            "wrapped" : false
+          }
+        }
+      },
+      "title" : "XmlSimpleReport",
+      "xml" : {
+        "name" : "SimpleReport",
+        "attribute" : false,
+        "wrapped" : false
+      }
+    },
+    "XmlToken" : {
+      "type" : "object",
+      "properties" : {
+        "certificateChain" : {
+          "xml" : {
+            "name" : "CertificateChain",
+            "attribute" : false,
+            "wrapped" : false
+          },
+          "$ref" : "#/definitions/XmlCertificateChain"
+        },
+        "errors" : {
+          "type" : "array",
+          "xml" : {
+            "name" : "Errors",
+            "attribute" : false,
+            "wrapped" : false
+          },
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "filename" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Filename",
+            "attribute" : false,
+            "wrapped" : false
+          }
+        },
+        "id" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Id",
+            "attribute" : true,
+            "wrapped" : false
+          }
+        },
+        "indication" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Indication",
+            "attribute" : false,
+            "wrapped" : false
+          },
+          "enum" : [ "FAILED", "INDETERMINATE", "NO_SIGNATURE_FOUND", "PASSED", "TOTAL_FAILED", "TOTAL_PASSED" ]
+        },
+        "infos" : {
+          "type" : "array",
+          "xml" : {
+            "name" : "Infos",
+            "attribute" : false,
+            "wrapped" : false
+          },
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "subIndication" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "SubIndication",
+            "attribute" : false,
+            "wrapped" : false
+          },
+          "enum" : [ "CERTIFICATE_CHAIN_GENERAL_FAILURE", "CHAIN_CONSTRAINTS_FAILURE", "CRYPTO_CONSTRAINTS_FAILURE", "CRYPTO_CONSTRAINTS_FAILURE_NO_POE", "EXPIRED", "FORMAT_FAILURE", "HASH_FAILURE", "NOT_YET_VALID", "NO_CERTIFICATE_CHAIN_FOUND", "NO_POE", "NO_SIGNING_CERTIFICATE_FOUND", "OUT_OF_BOUNDS_NOT_REVOKED", "OUT_OF_BOUNDS_NO_POE", "POLICY_PROCESSING_ERROR", "REVOKED", "REVOKED_CA_NO_POE", "REVOKED_NO_POE", "SIGNATURE_POLICY_NOT_AVAILABLE", "SIGNED_DATA_NOT_FOUND", "SIG_CONSTRAINTS_FAILURE", "SIG_CRYPTO_FAILURE", "TIMESTAMP_ORDER_FAILURE", "TRY_LATER" ]
+        },
+        "warnings" : {
+          "type" : "array",
+          "xml" : {
+            "name" : "Warnings",
+            "attribute" : false,
+            "wrapped" : false
+          },
+          "items" : {
+            "type" : "string"
+          }
+        }
+      },
+      "title" : "XmlToken",
+      "xml" : {
+        "name" : "Token",
+        "attribute" : false,
+        "wrapped" : false
+      }
+    },
+    "XmlValidationPolicy" : {
+      "type" : "object",
+      "properties" : {
+        "policyDescription" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "PolicyDescription",
+            "attribute" : false,
+            "wrapped" : false
+          }
+        },
+        "policyName" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "PolicyName",
+            "attribute" : false,
+            "wrapped" : false
+          }
+        }
+      },
+      "title" : "XmlValidationPolicy",
+      "xml" : {
+        "attribute" : false,
+        "wrapped" : false
+      }
+    }
+  }
+}

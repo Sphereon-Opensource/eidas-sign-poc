@@ -1,0 +1,19 @@
+== Introduction
+The eIdas Sign API is a Proof of Concept to sign input data using X509 certificates using a Cades signature.
+
+*Warning:*
+This is Proof of Concept code. Sphereon is building an Open-Source and Commercial product based upon the lessons learned. We provide this code for people that are interested in experimenting or learning from it. Do not use in production settings!
+
+This API typically will be used with the eIDAS-VC-Bridge-POC, which allows you to sign Verifiable Credentials using eIdas compliant Cades signatures with the help of this API.
+
+=== API - Swagger docs
+This document can be found whilst accessing the URL at which the application runs and supplying the path /docs. By default, this will be http://localhost:21762/docs
+
+We suggest reading the documentation from there, as it will include request/responses and links to all the class documentation.
+
+The OpenAPI/Swagger JSON document can be found by using the path /v2/api-docs, by default this will be http://localhost:21762/v2/api-docs
+
+
+=== Relation to crypto-keys API - Keys, Secret and Certificates
+This API is seperated from our bigger Crypto-Keys-API, which enables you to store and use cryptographic keys with support for multiple key types and algorithms. It allows you to remotely and securely store secrets in Hardware Security Modules. Certificates are built on top of these keys and secrets. They are the combination of public and private keys with a secret. The crypto keys allows you to encrypt, decrypt, sign and verify data, as well as store protected keys and certificates.
+

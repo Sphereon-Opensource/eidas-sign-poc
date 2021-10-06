@@ -1,0 +1,4 @@
+== Privacy and data storage
+
+This API needs a mongo database to run. Certificates are stored in the database. Please be aware that this PoC has no integration with Hardware Security Modules. That will be part of future Open-Source and Commercial products, based upon lessons learned from this PoC.
+
