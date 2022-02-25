@@ -646,9 +646,6 @@ $(addBlockSwitches);
 <li><a href="#_consumes">Consumes</a></li>
 <li><a href="#_produces">Produces</a></li>
 <li><a href="#_security">Security</a></li>
-<li><a href="#_example_http_request">Example HTTP request</a></li>
-<li><a href="#_example_http_response">Example HTTP response</a></li>
-<li><a href="#_example_curl_request">Example Curl request</a></li>
 </ul>
 </li>
 <li><a href="#_sign">5.1.2. Sign input data</a>
@@ -659,9 +656,6 @@ $(addBlockSwitches);
 <li><a href="#_consumes_2">Consumes</a></li>
 <li><a href="#_produces_2">Produces</a></li>
 <li><a href="#_security_2">Security</a></li>
-<li><a href="#_example_http_request_2">Example HTTP request</a></li>
-<li><a href="#_example_http_response_2">Example HTTP response</a></li>
-<li><a href="#_example_curl_request_2">Example Curl request</a></li>
 </ul>
 </li>
 </ul>
@@ -676,9 +670,6 @@ $(addBlockSwitches);
 <li><a href="#_consumes_3">Consumes</a></li>
 <li><a href="#_produces_3">Produces</a></li>
 <li><a href="#_security_3">Security</a></li>
-<li><a href="#_example_http_request_3">Example HTTP request</a></li>
-<li><a href="#_example_http_response_3">Example HTTP response</a></li>
-<li><a href="#_example_curl_request_3">Example Curl request</a></li>
 </ul>
 </li>
 </ul>
@@ -972,45 +963,6 @@ The micro number (ZZ) is used if we add forward compatible changes to our REST A
 </tbody>
 </table>
 </div>
-<div class="sect4">
-<h5 id="_example_http_request"><a class="anchor" href="#_example_http_request"></a><a class="link" href="#_example_http_request">Example HTTP request</a></h5>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="http">POST //localhost:21762:443/eidas/1.0/certificates HTTP/1.1
-Content-Type: application/json
-Authorization: Bearer nothing here in this POC
-Content-Length: 3585
-Host: http
-
-{
-  &quot;base64Certificate&quot; : &quot;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&quot;,
-  &quot;name&quot; : &quot;test-cert&quot;
-}</code></pre>
-</div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_example_http_response"><a class="anchor" href="#_example_http_response"></a><a class="link" href="#_example_http_response">Example HTTP response</a></h5>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="http">HTTP/1.1 200 OK</code></pre>
-</div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_example_curl_request"><a class="anchor" href="#_example_curl_request"></a><a class="link" href="#_example_curl_request">Example Curl request</a></h5>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="bash">$ curl 'http://http://localhost:21762:443/eidas/1.0/certificates' -i -X POST \
-    -H 'Content-Type: application/json' \
-    -H 'Authorization: Bearer nothing here in this POC' \
-    -d '{
-  &quot;base64Certificate&quot; : &quot;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&quot;,
-  &quot;name&quot; : &quot;test-cert&quot;
-}'</code></pre>
-</div>
-</div>
-</div>
 </div>
 <div class="sect3">
 <h4 id="_sign"><a class="anchor" href="#_sign"></a><a class="link" href="#_sign">5.1.2. Sign input data</a></h4>
@@ -1128,51 +1080,6 @@ Host: http
 </tbody>
 </table>
 </div>
-<div class="sect4">
-<h5 id="_example_http_request_2"><a class="anchor" href="#_example_http_request_2"></a><a class="link" href="#_example_http_request_2">Example HTTP request</a></h5>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="http">POST //localhost:21762:443/eidas/1.0/certificates/test-cert/sign HTTP/1.1
-Content-Type: application/json
-Authorization: Bearer nothing here in this POC
-Content-Length: 946
-Host: http
-
-{
-  &quot;content&quot; : &quot;ewogIAogICJAY29udGV4dCI6IFsKICAgICJodHRwczovL3d3dy53My5vcmcvMjAxOC9jcmVkZW50aWFscy92MSIsCiAgICAiaHR0cHM6Ly93d3cudzMub3JnLzIwMTgvY3JlZGVudGlhbHMvZXhhbXBsZXMvdjEiCiAgXSwKICAKICAiaWQiOiAiaHR0cDovL2V4YW1wbGUuZWR1L2NyZWRlbnRpYWxzLzE4NzIiLAogIAogICJ0eXBlIjogWyJWZXJpZmlhYmxlQ3JlZGVudGlhbCIsICJBbHVtbmlDcmVkZW50aWFsIl0sCiAgCiAgImlzc3VlciI6ICJodHRwczovL2V4YW1wbGUuZWR1L2lzc3VlcnMvNTY1MDQ5IiwKICAKICAiaXNzdWFuY2VEYXRlIjogIjIwMTAtMDEtMDFUMTk6MjM6MjRaIiwKICAKICAiY3JlZGVudGlhbFN1YmplY3QiOiB7CiAgICAKICAgICJpZCI6ICJkaWQ6ZXhhbXBsZTplYmZlYjFmNzEyZWJjNmYxYzI3NmUxMmVjMjEiLAogICAgCiAgICAiYWx1bW5pT2YiOiB7CiAgICAgICJpZCI6ICJkaWQ6ZXhhbXBsZTpjMjc2ZTEyZWMyMWViZmViMWY3MTJlYmM2ZjEiLAogICAgICAibmFtZSI6IFt7CiAgICAgICAgInZhbHVlIjogIkV4YW1wbGUgVW5pdmVyc2l0eSIsCiAgICAgICAgImxhbmciOiAiZW4iCiAgICAgIH0sIHsKICAgICAgICAidmFsdWUiOiAiRXhlbXBsZSBkJ1VuaXZlcnNpdMOpIiwKICAgICAgICAibGFuZyI6ICJmciIKICAgICAgfV0KICAgIH0KICB9fQ==&quot;,
-  &quot;password&quot; : &quot;testpassword&quot;
-}</code></pre>
-</div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_example_http_response_2"><a class="anchor" href="#_example_http_response_2"></a><a class="link" href="#_example_http_response_2">Example HTTP response</a></h5>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="http">HTTP/1.1 200 OK
-Content-Type: application/json
-Content-Length: 3860
-
-{
-  &quot;signature&quot; : &quot;-----BEGIN PKCS7-----\r\nMIAGCSqGSIb3DQEHAqCAMIACAQExDzANBglghkgBZQMEAgEFADCABgkqhkiG9w0B\r\nBwGggCSABIICm3sKICAKICAiQGNvbnRleHQiOiBbCiAgICAiaHR0cHM6Ly93d3cu\r\ndzMub3JnLzIwMTgvY3JlZGVudGlhbHMvdjEiLAogICAgImh0dHBzOi8vd3d3Lncz\r\nLm9yZy8yMDE4L2NyZWRlbnRpYWxzL2V4YW1wbGVzL3YxIgogIF0sCiAgCiAgImlk\r\nIjogImh0dHA6Ly9leGFtcGxlLmVkdS9jcmVkZW50aWFscy8xODcyIiwKICAKICAi\r\ndHlwZSI6IFsiVmVyaWZpYWJsZUNyZWRlbnRpYWwiLCAiQWx1bW5pQ3JlZGVudGlh\r\nbCJdLAogIAogICJpc3N1ZXIiOiAiaHR0cHM6Ly9leGFtcGxlLmVkdS9pc3N1ZXJz\r\nLzU2NTA0OSIsCiAgCiAgImlzc3VhbmNlRGF0ZSI6ICIyMDEwLTAxLTAxVDE5OjIz\r\nOjI0WiIsCiAgCiAgImNyZWRlbnRpYWxTdWJqZWN0IjogewogICAgCiAgICAiaWQi\r\nOiAiZGlkOmV4YW1wbGU6ZWJmZWIxZjcxMmViYzZmMWMyNzZlMTJlYzIxIiwKICAg\r\nIAogICAgImFsdW1uaU9mIjogewogICAgICAiaWQiOiAiZGlkOmV4YW1wbGU6YzI3\r\nNmUxMmVjMjFlYmZlYjFmNzEyZWJjNmYxIiwKICAgICAgIm5hbWUiOiBbewogICAg\r\nICAgICJ2YWx1ZSI6ICJFeGFtcGxlIFVuaXZlcnNpdHkiLAogICAgICAgICJsYW5n\r\nIjogImVuIgogICAgICB9LCB7CiAgICAgICAgInZhbHVlIjogIkV4ZW1wbGUgZCdV\r\nbml2ZXJzaXTDqSIsCiAgICAgICAgImxhbmciOiAiZnIiCiAgICAgIH1dCiAgICB9\r\nCiAgfX0AAAAAAACggDCCBBMwggL7oAMCAQICFCdIUybMBeQQa3kIGxEC/BUy18Bw\r\nMA0GCSqGSIb3DQEBCwUAMIGYMQswCQYDVQQGEwJOTDEWMBQGA1UECAwNTm9vcmQt\r\nSG9sbGFuZDESMBAGA1UEBwwJQW1zdGVyZGFtMRQwEgYDVQQKDAtUZXN0Q29tcGFu\r\n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\r\n-----END PKCS7-----\r\n&quot;
-}</code></pre>
-</div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_example_curl_request_2"><a class="anchor" href="#_example_curl_request_2"></a><a class="link" href="#_example_curl_request_2">Example Curl request</a></h5>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="bash">$ curl 'http://http://localhost:21762:443/eidas/1.0/certificates/test-cert/sign' -i -X POST \
-    -H 'Content-Type: application/json' \
-    -H 'Authorization: Bearer nothing here in this POC' \
-    -d '{
-  &quot;content&quot; : &quot;ewogIAogICJAY29udGV4dCI6IFsKICAgICJodHRwczovL3d3dy53My5vcmcvMjAxOC9jcmVkZW50aWFscy92MSIsCiAgICAiaHR0cHM6Ly93d3cudzMub3JnLzIwMTgvY3JlZGVudGlhbHMvZXhhbXBsZXMvdjEiCiAgXSwKICAKICAiaWQiOiAiaHR0cDovL2V4YW1wbGUuZWR1L2NyZWRlbnRpYWxzLzE4NzIiLAogIAogICJ0eXBlIjogWyJWZXJpZmlhYmxlQ3JlZGVudGlhbCIsICJBbHVtbmlDcmVkZW50aWFsIl0sCiAgCiAgImlzc3VlciI6ICJodHRwczovL2V4YW1wbGUuZWR1L2lzc3VlcnMvNTY1MDQ5IiwKICAKICAiaXNzdWFuY2VEYXRlIjogIjIwMTAtMDEtMDFUMTk6MjM6MjRaIiwKICAKICAiY3JlZGVudGlhbFN1YmplY3QiOiB7CiAgICAKICAgICJpZCI6ICJkaWQ6ZXhhbXBsZTplYmZlYjFmNzEyZWJjNmYxYzI3NmUxMmVjMjEiLAogICAgCiAgICAiYWx1bW5pT2YiOiB7CiAgICAgICJpZCI6ICJkaWQ6ZXhhbXBsZTpjMjc2ZTEyZWMyMWViZmViMWY3MTJlYmM2ZjEiLAogICAgICAibmFtZSI6IFt7CiAgICAgICAgInZhbHVlIjogIkV4YW1wbGUgVW5pdmVyc2l0eSIsCiAgICAgICAgImxhbmciOiAiZW4iCiAgICAgIH0sIHsKICAgICAgICAidmFsdWUiOiAiRXhlbXBsZSBkJ1VuaXZlcnNpdMOpIiwKICAgICAgICAibGFuZyI6ICJmciIKICAgICAgfV0KICAgIH0KICB9fQ==&quot;,
-  &quot;password&quot; : &quot;testpassword&quot;
-}'</code></pre>
-</div>
-</div>
-</div>
 </div>
 </div>
 <div class="sect2">
@@ -1288,88 +1195,6 @@ Content-Length: 3860
 </tr>
 </tbody>
 </table>
-</div>
-<div class="sect4">
-<h5 id="_example_http_request_3"><a class="anchor" href="#_example_http_request_3"></a><a class="link" href="#_example_http_request_3">Example HTTP request</a></h5>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="http">POST //localhost:21762:443/eidas/1.0/signatures HTTP/1.1
-Content-Type: application/json
-Authorization: Bearer nothing here in this POC
-Content-Length: 3860
-Host: http
-
-{
-  &quot;signature&quot; : &quot;-----BEGIN PKCS7-----\r\nMIAGCSqGSIb3DQEHAqCAMIACAQExDzANBglghkgBZQMEAgEFADCABgkqhkiG9w0B\r\nBwGggCSABIICm3sKICAKICAiQGNvbnRleHQiOiBbCiAgICAiaHR0cHM6Ly93d3cu\r\ndzMub3JnLzIwMTgvY3JlZGVudGlhbHMvdjEiLAogICAgImh0dHBzOi8vd3d3Lncz\r\nLm9yZy8yMDE4L2NyZWRlbnRpYWxzL2V4YW1wbGVzL3YxIgogIF0sCiAgCiAgImlk\r\nIjogImh0dHA6Ly9leGFtcGxlLmVkdS9jcmVkZW50aWFscy8xODcyIiwKICAKICAi\r\ndHlwZSI6IFsiVmVyaWZpYWJsZUNyZWRlbnRpYWwiLCAiQWx1bW5pQ3JlZGVudGlh\r\nbCJdLAogIAogICJpc3N1ZXIiOiAiaHR0cHM6Ly9leGFtcGxlLmVkdS9pc3N1ZXJz\r\nLzU2NTA0OSIsCiAgCiAgImlzc3VhbmNlRGF0ZSI6ICIyMDEwLTAxLTAxVDE5OjIz\r\nOjI0WiIsCiAgCiAgImNyZWRlbnRpYWxTdWJqZWN0IjogewogICAgCiAgICAiaWQi\r\nOiAiZGlkOmV4YW1wbGU6ZWJmZWIxZjcxMmViYzZmMWMyNzZlMTJlYzIxIiwKICAg\r\nIAogICAgImFsdW1uaU9mIjogewogICAgICAiaWQiOiAiZGlkOmV4YW1wbGU6YzI3\r\nNmUxMmVjMjFlYmZlYjFmNzEyZWJjNmYxIiwKICAgICAgIm5hbWUiOiBbewogICAg\r\nICAgICJ2YWx1ZSI6ICJFeGFtcGxlIFVuaXZlcnNpdHkiLAogICAgICAgICJsYW5n\r\nIjogImVuIgogICAgICB9LCB7CiAgICAgICAgInZhbHVlIjogIkV4ZW1wbGUgZCdV\r\nbml2ZXJzaXTDqSIsCiAgICAgICAgImxhbmciOiAiZnIiCiAgICAgIH1dCiAgICB9\r\nCiAgfX0AAAAAAACggDCCBBMwggL7oAMCAQICFCdIUybMBeQQa3kIGxEC/BUy18Bw\r\nMA0GCSqGSIb3DQEBCwUAMIGYMQswCQYDVQQGEwJOTDEWMBQGA1UECAwNTm9vcmQt\r\nSG9sbGFuZDESMBAGA1UEBwwJQW1zdGVyZGFtMRQwEgYDVQQKDAtUZXN0Q29tcGFu\r\n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\r\n-----END PKCS7-----\r\n&quot;
-}</code></pre>
-</div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_example_http_response_3"><a class="anchor" href="#_example_http_response_3"></a><a class="link" href="#_example_http_response_3">Example HTTP response</a></h5>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight nowrap"><code data-lang="http">HTTP/1.1 200 OK
-Content-Type: application/json
-Content-Length: 2737
-
-{
-  &quot;originalData&quot; : &quot;ewogIAogICJAY29udGV4dCI6IFsKICAgICJodHRwczovL3d3dy53My5vcmcvMjAxOC9jcmVkZW50aWFscy92MSIsCiAgICAiaHR0cHM6Ly93d3cudzMub3JnLzIwMTgvY3JlZGVudGlhbHMvZXhhbXBsZXMvdjEiCiAgXSwKICAKICAiaWQiOiAiaHR0cDovL2V4YW1wbGUuZWR1L2NyZWRlbnRpYWxzLzE4NzIiLAogIAogICJ0eXBlIjogWyJWZXJpZmlhYmxlQ3JlZGVudGlhbCIsICJBbHVtbmlDcmVkZW50aWFsIl0sCiAgCiAgImlzc3VlciI6ICJodHRwczovL2V4YW1wbGUuZWR1L2lzc3VlcnMvNTY1MDQ5IiwKICAKICAiaXNzdWFuY2VEYXRlIjogIjIwMTAtMDEtMDFUMTk6MjM6MjRaIiwKICAKICAiY3JlZGVudGlhbFN1YmplY3QiOiB7CiAgICAKICAgICJpZCI6ICJkaWQ6ZXhhbXBsZTplYmZlYjFmNzEyZWJjNmYxYzI3NmUxMmVjMjEiLAogICAgCiAgICAiYWx1bW5pT2YiOiB7CiAgICAgICJpZCI6ICJkaWQ6ZXhhbXBsZTpjMjc2ZTEyZWMyMWViZmViMWY3MTJlYmM2ZjEiLAogICAgICAibmFtZSI6IFt7CiAgICAgICAgInZhbHVlIjogIkV4YW1wbGUgVW5pdmVyc2l0eSIsCiAgICAgICAgImxhbmciOiAiZW4iCiAgICAgIH0sIHsKICAgICAgICAidmFsdWUiOiAiRXhlbXBsZSBkJ1VuaXZlcnNpdMOpIiwKICAgICAgICAibGFuZyI6ICJmciIKICAgICAgfV0KICAgIH0KICB9fQ==&quot;,
-  &quot;simpleReport&quot; : {
-    &quot;documentName&quot; : &quot;&quot;,
-    &quot;semantic&quot; : [ ],
-    &quot;signatureOrTimestamp&quot; : [ {
-      &quot;bestSignatureTime&quot; : &quot;2022-02-10T14:45:39.300+00:00&quot;,
-      &quot;certificateChain&quot; : {
-        &quot;certificate&quot; : [ {
-          &quot;id&quot; : &quot;C-F74958DAB797F701046110A6E5C1D2ACA49DD94BCEF0DCAD4B5174AA3E0E513F&quot;,
-          &quot;qualifiedName&quot; : &quot;Scott Malley&quot;
-        } ]
-      },
-      &quot;errors&quot; : [ &quot;Unable to build a certificate chain until a trusted list!&quot; ],
-      &quot;extensionPeriodMax&quot; : &quot;2030-11-30T14:31:05.000+00:00&quot;,
-      &quot;id&quot; : &quot;S-EF60CB5F8B44CC2F06DBB2527F5B84AFDE68B5735CDDB3F1A1C9142D4AFBACDE&quot;,
-      &quot;indication&quot; : &quot;TOTAL_PASSED&quot;,
-      &quot;infos&quot; : [ ],
-      &quot;signatureFormat&quot; : &quot;CAdES_BASELINE_B&quot;,
-      &quot;signatureLevel&quot; : {
-        &quot;description&quot; : &quot;Not applicable&quot;,
-        &quot;value&quot; : &quot;NA&quot;
-      },
-      &quot;signatureScope&quot; : [ {
-        &quot;name&quot; : &quot;Full document&quot;,
-        &quot;scope&quot; : &quot;FULL&quot;,
-        &quot;value&quot; : &quot;Full document&quot;
-      } ],
-      &quot;signedBy&quot; : &quot;Scott Malley&quot;,
-      &quot;signingTime&quot; : &quot;2022-02-10T14:45:38.000+00:00&quot;,
-      &quot;warnings&quot; : [ ]
-    } ],
-    &quot;signaturesCount&quot; : 1,
-    &quot;validSignaturesCount&quot; : 1,
-    &quot;validationPolicy&quot; : {
-      &quot;policyDescription&quot; : &quot;Validate electronic signatures and indicates whether they are Advanced electronic Signatures (AdES), AdES supported by a Qualified Certificate (AdES/QC) or a\n\t\tQualified electronic Signature (QES). All certificates and their related chains supporting the signatures are validated against the EU Member State Trusted Lists (this includes\n\t\tsigner's certificate and certificates used to validate certificate validity status services - CRLs, OCSP, and time-stamps).\n\t&quot;,
-      &quot;policyName&quot; : &quot;QES AdESQC TL based&quot;
-    },
-    &quot;validationTime&quot; : &quot;2022-02-10T14:45:39.300+00:00&quot;
-  },
-  &quot;verified&quot; : true
-}</code></pre>
-</div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_example_curl_request_3"><a class="anchor" href="#_example_curl_request_3"></a><a class="link" href="#_example_curl_request_3">Example Curl request</a></h5>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="bash">$ curl 'http://http://localhost:21762:443/eidas/1.0/signatures' -i -X POST \
-    -H 'Content-Type: application/json' \
-    -H 'Authorization: Bearer nothing here in this POC' \
-    -d '{
-  &quot;signature&quot; : &quot;-----BEGIN PKCS7-----\r\nMIAGCSqGSIb3DQEHAqCAMIACAQExDzANBglghkgBZQMEAgEFADCABgkqhkiG9w0B\r\nBwGggCSABIICm3sKICAKICAiQGNvbnRleHQiOiBbCiAgICAiaHR0cHM6Ly93d3cu\r\ndzMub3JnLzIwMTgvY3JlZGVudGlhbHMvdjEiLAogICAgImh0dHBzOi8vd3d3Lncz\r\nLm9yZy8yMDE4L2NyZWRlbnRpYWxzL2V4YW1wbGVzL3YxIgogIF0sCiAgCiAgImlk\r\nIjogImh0dHA6Ly9leGFtcGxlLmVkdS9jcmVkZW50aWFscy8xODcyIiwKICAKICAi\r\ndHlwZSI6IFsiVmVyaWZpYWJsZUNyZWRlbnRpYWwiLCAiQWx1bW5pQ3JlZGVudGlh\r\nbCJdLAogIAogICJpc3N1ZXIiOiAiaHR0cHM6Ly9leGFtcGxlLmVkdS9pc3N1ZXJz\r\nLzU2NTA0OSIsCiAgCiAgImlzc3VhbmNlRGF0ZSI6ICIyMDEwLTAxLTAxVDE5OjIz\r\nOjI0WiIsCiAgCiAgImNyZWRlbnRpYWxTdWJqZWN0IjogewogICAgCiAgICAiaWQi\r\nOiAiZGlkOmV4YW1wbGU6ZWJmZWIxZjcxMmViYzZmMWMyNzZlMTJlYzIxIiwKICAg\r\nIAogICAgImFsdW1uaU9mIjogewogICAgICAiaWQiOiAiZGlkOmV4YW1wbGU6YzI3\r\nNmUxMmVjMjFlYmZlYjFmNzEyZWJjNmYxIiwKICAgICAgIm5hbWUiOiBbewogICAg\r\nICAgICJ2YWx1ZSI6ICJFeGFtcGxlIFVuaXZlcnNpdHkiLAogICAgICAgICJsYW5n\r\nIjogImVuIgogICAgICB9LCB7CiAgICAgICAgInZhbHVlIjogIkV4ZW1wbGUgZCdV\r\nbml2ZXJzaXTDqSIsCiAgICAgICAgImxhbmciOiAiZnIiCiAgICAgIH1dCiAgICB9\r\nCiAgfX0AAAAAAACggDCCBBMwggL7oAMCAQICFCdIUybMBeQQa3kIGxEC/BUy18Bw\r\nMA0GCSqGSIb3DQEBCwUAMIGYMQswCQYDVQQGEwJOTDEWMBQGA1UECAwNTm9vcmQt\r\nSG9sbGFuZDESMBAGA1UEBwwJQW1zdGVyZGFtMRQwEgYDVQQKDAtUZXN0Q29tcGFu\r\n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\r\n-----END PKCS7-----\r\n&quot;
-}'</code></pre>
-</div>
-</div>
 </div>
 </div>
 </div>
@@ -1799,7 +1624,7 @@ Content-Length: 2737
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-02-09 16:59:41 +0100
+Last updated 2022-02-25 11:04:44 +0100
 </div>
 </div>
 </body>
